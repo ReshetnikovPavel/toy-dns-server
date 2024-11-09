@@ -3,6 +3,7 @@ import copy
 import enum
 import math
 import argparse
+import os
 
 import cacheout
 from typing import List
@@ -192,8 +193,8 @@ def main(args: argparse.Namespace):
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--host', default='127.0.0.1')
-    parser.add_argument('--port', default='5000')
+    parser.add_argument('--host', default=os.environ.get('HOST') or '127.0.0.1')
+    parser.add_argument('--port', default=os.environ.get('PORT') or '5000')
     return parser.parse_args()
 
 
